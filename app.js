@@ -10,6 +10,7 @@ var PostRoute = require('./routes/PostRoute');
 var UserRoute = require('./routes/UserRoute');
 var LocationRoute = require('./routes/LocationRoute');
 var FriendRelationshipRoute = require('./routes/FriendRelationshipRoute');
+var CommentRoute = require('./routes/CommentRoute');
 
 var app = express();
 
@@ -39,7 +40,7 @@ app.use('/post', PostRoute);
 app.use('/user', UserRoute);
 app.use('/location', LocationRoute);
 app.use('/friend', FriendRelationshipRoute);
-
+app.use('/comment', CommentRoute);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

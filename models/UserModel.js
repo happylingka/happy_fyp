@@ -10,11 +10,10 @@ var UserSchema = new Schema({
   'userDateOfBirth': String,
   'userGender': String,
   'userLocation' : {
-	 	type: Schema.Types.ObjectId,
-	 	ref: 'Location'
-	},
-'userBookmarked' : Array
-}
+    type: Schema.Types.ObjectId,
+    ref: 'Location'
+  },
+  'userBookmarked' : Array
 
   //location, online status
 });

@@ -26,6 +26,10 @@ module.exports = {
       if (obj) res.json({Success: obj});
     });
   },
+  addlike: function(req, res){
+
+
+  },
   edit: function(req, res) {
     PostModel.findOne({creator: req.params.id}, function(err, post) {
       if (err) res.json({Error: err});
@@ -37,7 +41,7 @@ module.exports = {
           if (e) res.json({Error: e});
           if (obj) res.json({Success: obj});
         });
-      };
+      }
     });
   },
   remove: function(req, res){

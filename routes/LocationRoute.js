@@ -3,7 +3,9 @@ var router = express.Router();
 var LocationController = require('../controllers/LocationController');
 
 /* GET home page. */
-router.post('/', LocationController.create);
-
+router.post('/createLocation', LocationController.create);
+//router.post('/editLocation', LocationController.edit);
+router.put('/', LocationController.edit);
+router.post('/getAllLocation', LocationController.getAll);
 
 module.exports = router;

@@ -8,7 +8,6 @@ var LocationSchema = new Schema({
  'locationCountry' : String,
  'locationCoordinate' : Array
 
-
  //comment, rating
 });
 
