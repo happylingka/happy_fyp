@@ -1,17 +1,52 @@
 var CommentModel = require('../models/CommentModel.js');
+var PostModel = require('../models/PostModel.js');
 
 module.exports = {
   create: function(req, res){
-    var comment = new commentCreateTime({
+    var comment = new CommentModel({
       'commentCreator' : req.body.commentCreator,
       'commentContent' : req.body.commentContent,
-      'commentCreateTime' : new Date()
+      'commentCreateTime' : new Date(),
+      'commentPostId' : req.body.commentPostId
     });
     comment.save(function(err, obj){
       if (err) res.json({Error : err});
       if (obj) res.json({Succ : obj});
     });
+
+    //add comment to the post
+    //findone of the post
+    var postId = req.body.commentPostId,
+    PostModel.findOne({PostId: postId}, function(err, post) {
+      if (err) res.json({Error: err});
+      if (!post) {res.json({Success: "No such post"})};
+      if (post) {
+        if (!post.postComment){
+          //null
+          post.postComment = {};
+          //how to save obj id in array
+        }else{
+          //not null
+          //add obj id to an array
+        }
+        //post.save
+        post.save(function(e, obj) {
+          if (e) res.json({Error: e});
+          if (obj) res.json({Success: obj});
+        });
+      };
+    });
+
+    //edit the post-> add comment id
+
   },
+  getAllByPostId: function(req, res){
+    CommentModel.find({
+      commentPostId: req.body.commentPostId}, function(err, obj){
+        if (err) res.json({Error: err});
+        if (obj) res.json({Success: obj});
+      });
+  };
   edit: function(req, res){
     CommentModel.findOne({id: req.body.id}, function(err, comment) {
       if (err) res.json({Error: err});
