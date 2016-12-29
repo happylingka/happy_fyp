@@ -26,9 +26,20 @@ module.exports = {
       if (obj) res.json({Success: obj});
     });
   },
-  addlike: function(req, res){
-
-
+  addlikeByUid: function(req, res){
+    PostModel.find({
+      _id: req.body.postId, postCreator: req.body.postCreator
+    }, function(err, obj){
+      if (err) res.json({Error: err});
+      if (!obj) res.json({Success: "No such Post"});
+      if (obj){
+        obj.postLike = obj.postLike + 1;
+        obj.save(function(e, obj) {
+          if (e) res.json({Error: e});
+          if (obj) res.json({Success: obj});
+        });
+      }
+    });
   },
   edit: function(req, res) {
     PostModel.findOne({creator: req.params.id}, function(err, post) {

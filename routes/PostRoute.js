@@ -9,4 +9,6 @@ router.post('/', PostController.create);
 router.put('/', PostController.edit);
 router.delete('/:postId', PostController.remove);
 
+//post add like and remove like
+
 module.exports = router;
