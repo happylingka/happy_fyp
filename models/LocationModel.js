@@ -7,6 +7,9 @@ var LocationSchema = new Schema({
  'locationCity' : String,
  'locationCountry' : String,
  'locationCoordinate' : Array
+
+
+ //comment, rating
 });
 
 module.exports = mongoose.model('Location', LocationSchema);

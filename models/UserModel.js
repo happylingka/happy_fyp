@@ -8,7 +8,14 @@ var UserSchema = new Schema({
   'userAccountName': String,
   'userPassword': String,
   'userDateOfBirth': String,
-  'userGender': String
+  'userGender': String,
+  'userLocation' : {
+	 	type: Schema.Types.ObjectId,
+	 	ref: 'Location'
+	},
+'userBookmarked' : Array
+}
+
   //location, online status
 });
 
