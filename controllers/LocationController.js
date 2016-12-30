@@ -38,5 +38,12 @@ module.exports = {
       if (err) res.json({Error: err});
       if (obj) res.json({Success: obj});
     });
+  },
+  remove: function(req, res){
+    var id = req.body.id;
+    LocationModel.findByIdAndRemove(id, function (err, obj) {
+      if (err) res.json({Error: err}) ;
+      if (obj) res.json({Success : obj});
+    });
   }
 }

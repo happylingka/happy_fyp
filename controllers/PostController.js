@@ -56,7 +56,7 @@ module.exports = {
     });
   },
   remove: function(req, res){
-    var id = req.params.postId;
+    var id = req.body.postId;
     PostModel.findByIdAndRemove(id, function (err, obj) {
     if (err) res.json({Error: err}) ;
     if (obj) res.json({Success : obj});

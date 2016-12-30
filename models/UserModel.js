@@ -12,8 +12,7 @@ var UserSchema = new Schema({
   'userLocation' : {
     type: Schema.Types.ObjectId,
     ref: 'Location'
-  },
-  'userBookmarked' : Array
+  }
 
   //location, online status
 });

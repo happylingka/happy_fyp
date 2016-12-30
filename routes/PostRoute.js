@@ -5,9 +5,9 @@ var PostController = require('../controllers/PostController');
 /* GET home page. */
 router.get('/', PostController.getAll);
 router.get('/:uid', PostController.getBy);
-router.post('/', PostController.create);
+router.post('/createPost', PostController.create);
 router.put('/', PostController.edit);
-router.delete('/:postId', PostController.remove);
+router.post('/deletePost', PostController.remove);
 
 //post add like and remove like
 
