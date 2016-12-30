@@ -2,7 +2,6 @@ var CommentModel = require('../models/CommentModel.js');
 var PostModel = require('../models/PostModel.js');
 
 module.exports = {
-
   create: function(req, res){
     var comment = new CommentModel({
       'commentCreator' : req.body.commentCreator,
@@ -22,8 +21,6 @@ module.exports = {
     PostModel.findOne({PostId: postId}, function(err, post) {
 
       post.postComment.push(id)
-
-
 
       if (err) res.json({Error: err});
       if (!post) {res.json({Success: "No such post"})};

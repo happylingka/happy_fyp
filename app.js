@@ -6,12 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+
+var AlbumRoute = require('./routes/AlbumRoute');
+var BookmarkRoute = require('./routes/BookmarkRoute');
+var CommentRoute = require('./routes/CommentRoute');
+var FriendRelationshipRoute = require('./routes/FriendRelationshipRoute');
+var LocationRoute = require('./routes/LocationRoute');
+var PhotoRoute = require('./routes/PhotoRoute');
 var PostRoute = require('./routes/PostRoute');
 var UserRoute = require('./routes/UserRoute');
-var LocationRoute = require('./routes/LocationRoute');
-var FriendRelationshipRoute = require('./routes/FriendRelationshipRoute');
-var CommentRoute = require('./routes/CommentRoute');
-var BookmarkRoute = require('./routes/BookmarkRoute');
 
 var app = express();
 
@@ -37,13 +40,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+
+app.use('/album', AlbumRoute);
+app.use('/bookmark', BookmarkRoute);
+app.use('/comment', CommentRoute);
+app.use('/friend', FriendRelationshipRoute);
+app.use('/location', LocationRoute);
+app.use('/photo', PhotoRoute);
 app.use('/post', PostRoute);
 app.use('/user', UserRoute);
-app.use('/location', LocationRoute);
-app.use('/friend', FriendRelationshipRoute);
-app.use('/comment', CommentRoute);
-app.use('/bookmark', BookmarkRoute);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

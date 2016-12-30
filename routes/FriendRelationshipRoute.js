@@ -10,5 +10,4 @@ router.post('/findMyFriend',FriendRelationshipController.findMyFriend);
 router.post('/findMyFriendRequest',FriendRelationshipController.findMyFriendRequest);
 router.post('/removeFriend', FriendRelationshipController.friendRemove);
 
-
 module.exports = router;
